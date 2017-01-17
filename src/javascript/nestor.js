@@ -32,11 +32,11 @@
   */
   function nest(objectToNest)
   {
-    let keys = Object.keys(objectToNest),
+    var keys = Object.keys(objectToNest),
         nestedObject = {};
 
     keys.forEach(function(key){
-      let separator = ".",
+      var separator = ".",
           subkeys   = key.split(separator),
           value     = objectToNest[key];
 
@@ -45,7 +45,7 @@
 
     function addProperty(object, subkeys, value)
     {
-      let subObject,
+      var subObject,
           currentKey;
 
       currentKey  = subkeys.splice(0,1);
@@ -75,14 +75,14 @@
   */
   function rowArrayToProperties(headers,rows)
   {
-    let columnCount = headers.length
+    var columnCount = headers.length
         objects     = [];
 
     rows.forEach(function(row){
-      let object = {};
-      for(let c = 0; c < columnCount; c++)
+      var object = {};
+      for(var c = 0; c < columnCount; c++)
       {
-        let property     = headers[c];
+        var property     = headers[c];
         object[property] = row[c];
       }
       objects.push(object);

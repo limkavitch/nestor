@@ -8,13 +8,13 @@
 
     <script src="nestor.js" charset="utf-8"></script>
     <script type="text/javascript">
-      let rows = getRowArray(10,5),
+      var rows = getRowArray(10,5),
           properties = nestor.convert.rowArray.to.properties(["a","b","c","d","e"], rows);
 
       //console.log(rows);
       //console.log(properties);
 
-      let objectToNest =
+      var objectToNest =
       {
         "user.name"               : "John Doe",
         "user.age"                : "28",
@@ -31,15 +31,15 @@
         "user.family.father.age"  : "60"
       }
 
-      let nestedObject = nestor.nest(objectToNest);
+      var nestedObject = nestor.nest(objectToNest);
       console.log(nestedObject);
 
       function getRowArray(rowCount,columnCount)
       {
-        let rows = [];
+        var rows = [];
         for(var r = 0; r < rowCount; r++)
         {
-          let row = [];
+          var row = [];
           for(var c = 0; c < columnCount; c++)
           {
             row.push("r: " + r + ", c: " + c);
