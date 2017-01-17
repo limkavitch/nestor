@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script src="nestor.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      let rows = getRowArray(10,5),
+          properties = nestor.convert.rowArray.to.properties(["a","b","c","d","e"], rows);
+
+      //console.log(rows);
+      //console.log(properties);
+
+      let objectToNest =
+      {
+        "user.name"               : "John Doe",
+        "user.age"                : "28",
+        "user.phone.countryCode"  : "+55",
+        "user.phone.areaCode"     : "61",
+        "user.phone.number"       : "9876-5432",
+        "user.email.personal"     : "john.doe@example.com",
+        "user.email.work"         : "john.doe@company.com",
+        "user.education.degree"   : "College",
+        "user.education.score"    : "9.2",
+        "user.family.mother.name" : "Jane Doe",
+        "user.family.mother.age"  : "54",
+        "user.family.father.name" : "Jackson Doe",
+        "user.family.father.age"  : "60"
+      }
+
+      let nestedObject = nestor.nest(objectToNest);
+      console.log(nestedObject);
+
+      function getRowArray(rowCount,columnCount)
+      {
+        let rows = [];
+        for(var r = 0; r < rowCount; r++)
+        {
+          let row = [];
+          for(var c = 0; c < columnCount; c++)
+          {
+            row.push("r: " + r + ", c: " + c);
+          }
+          rows.push(row);
+        }
+        return rows;
+      }
+
+    </script>
+  </body>
+</html>
